@@ -21,3 +21,5 @@ spring:
             group: MALL_GROUP
           - data-id: shared-swagger.yaml # 共享日志配置
             group: MALL_GROUP
+          - data-id: shared-seata.yaml # 共享seata配置
+            group: MALL_GROUP

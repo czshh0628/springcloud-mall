@@ -1,6 +1,8 @@
 feign:
   okhttp:
     enabled: true # 开启OKHttp连接池支持
+  sentinel:
+    enabled: true
 mall:
   db:
     host: 192.168.80.100

@@ -8,6 +8,7 @@ import czs.mall.api.domain.dto.ItemDTO;
 import czs.mall.api.domain.dto.OrderDetailDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
+import org.springframework.stereotype.Component;
 
 
 /**

@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  czs.mall.api.config.DefaultFeignConfig
+  czs.mall.api.config.DefaultFeignConfig,\
+  czs.mall.api.config.MvcConfig,\
+  czs.mall.api.interceptor.UserInfoInterceptor

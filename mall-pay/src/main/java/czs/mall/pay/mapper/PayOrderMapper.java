@@ -9,7 +9,7 @@ import czs.mall.api.domain.po.PayOrder;
  * 支付订单 Mapper 接口
  * </p>
  *
- * @author 虎哥
+ * @author czs
  * @since 2023-05-16
  */
 public interface PayOrderMapper extends BaseMapper<PayOrder> {

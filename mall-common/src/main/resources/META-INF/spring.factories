@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  czs.mall.common.config.MyBatisConfig,\
-  czs.mall.common.interceptor.UserInfoInterceptor
+  czs.mall.common.config.MyBatisConfig

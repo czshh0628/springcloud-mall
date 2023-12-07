@@ -1,0 +1,15 @@
+knife4j:
+  enable: true
+  openapi:
+    title: ${mall.swagger.title:接口文档}
+    description: ${mall.swagger.description:接口文档}
+    email: ${mall.swagger.email:760620329@qq.com}
+    concat: ${mall.swagger.concat:czs}
+    url: https://gitee.com/czshh0628
+    version: v1.0.0
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - ${mall.swagger.package}

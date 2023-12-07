@@ -23,3 +23,7 @@ spring:
             group: MALL_GROUP
           - data-id: shared-seata.yaml # 共享seata配置
             group: MALL_GROUP
+    sentinel:
+      transport:
+        dashboard: 192.168.80.100:8858
+      http-method-specify: true

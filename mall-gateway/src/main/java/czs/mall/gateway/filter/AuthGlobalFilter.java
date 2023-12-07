@@ -2,6 +2,7 @@ package czs.mall.gateway.filter;
 
 import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTHeader;
+import cn.hutool.jwt.JWTUtil;
 import czs.mall.common.exception.UnauthorizedException;
 import czs.mall.common.utils.CollUtils;
 import czs.mall.gateway.config.AuthProperties;
@@ -44,10 +45,10 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             token = headers.get(0);
         }
         // 4.校验并解析token
-        Long userId = null;
+        Integer userId = null;
         try {
             JWT jwt = JWT.of(token);
-            userId = (Long) jwt.getPayload("userId");
+            userId = (Integer) jwt.getPayload("userId");
         } catch (Exception e) {
             // 如果无效，拦截
             ServerHttpResponse response = exchange.getResponse();

@@ -9,7 +9,7 @@ import czs.mall.api.domain.po.OrderLogistics;
  *  服务类
  * </p>
  *
- * @author 虎哥
+ * @author czs
  * @since 2023-05-05
  */
 public interface IOrderLogisticsService extends IService<OrderLogistics> {

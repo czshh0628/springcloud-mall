@@ -12,6 +12,6 @@ public interface CartClient {
     @DeleteMapping("/carts")
     void deleteCarByIds(@RequestParam("ids") List<Long> ids);
 
-    @DeleteMapping
+    @DeleteMapping("/carts")
     void deleteCartItemByIds(@RequestParam("ids") List<Long> ids);
 }

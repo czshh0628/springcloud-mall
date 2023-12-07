@@ -18,7 +18,7 @@ public interface ItemClient {
     public List<ItemDTO> queryItemByIds(@RequestParam("ids") List<Long> ids);
 
     @ApiOperation("批量扣减库存")
-    @PutMapping("/stock/deduct")
+    @PutMapping("/items/stock/deduct")
     public void deductStock(@RequestBody List<OrderDetailDTO> items) throws Exception;
 
 }

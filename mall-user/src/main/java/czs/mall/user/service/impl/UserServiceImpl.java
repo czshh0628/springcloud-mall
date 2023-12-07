@@ -2,7 +2,9 @@ package czs.mall.user.service.impl;
 
 
 import cn.hutool.core.util.ObjUtil;
+import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTUtil;
+import cn.hutool.jwt.signers.JWTSignerUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import czs.mall.api.domain.dto.LoginFormDTO;
 import czs.mall.api.domain.po.User;
@@ -53,7 +55,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             throw new BadRequestException("密码错误");
         }
         // 5.生成TOKEN
-        String token = JWTUtil.createToken(new HashMap<String, Object>(), String.valueOf(user.getId()).getBytes());
+        String token = JWT.create()
+                .setPayload("userId", user.getId())
+                .setSigner(JWTSignerUtil.none())
+                .sign();
         // 6.封装VO返回
         UserLoginVO vo = new UserLoginVO();
         vo.setUserId(user.getId());

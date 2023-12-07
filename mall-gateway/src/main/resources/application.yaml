@@ -33,3 +33,10 @@ spring:
           uri: lb://pay-service
           predicates:
             - Path=/pay-orders/**
+mall:
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /items/**
+      - /hi

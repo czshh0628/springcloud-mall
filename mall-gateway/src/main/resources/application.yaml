@@ -9,7 +9,7 @@ spring:
       username: nacos
       password: nacos
       discovery:
-        namespace: a2aa6a73-6d33-4db4-9733-33ad973669d7
+        namespace: hmall
         group: MALL_GROUP
     gateway:
       routes:

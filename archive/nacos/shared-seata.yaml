@@ -8,7 +8,7 @@ seata:
       application: seata-server
       username: nacos
       password: nacos
-  tx-service-group: hmall # 和下面的vgroup-mapping的hmall对应，可以改成不同值，但要一直
+  tx-service-group: hmall # 和下面的vgroup-mapping的hmall对应，可以改成不同值，但要一致
   service:
     vgroup-mapping:
       hmall: "default" # 这个配置的seata的地址 seata.registry.nacos.cluster的值 或者直接去nacos web ui上看 服务管理 seata详情的集群旁边是啥

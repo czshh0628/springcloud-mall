@@ -49,6 +49,12 @@ public class CartController {
     @ApiImplicitParam(name = "ids", value = "购物车条目id集合")
     @DeleteMapping
     public void deleteCartItemByIds(@RequestParam("ids") List<Long> ids){
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(1/0);
         cartService.removeByItemIds(ids);
     }
 }

@@ -1,0 +1,17 @@
+POST http://localhost:8080/orders
+Accept: application/json
+
+{
+    "addressId": 59,
+    "paymentType": 0,
+    "details": [
+        {
+            "itemId": 317578,
+            "num": 1
+        },
+        {
+            "itemId": 317580,
+            "num": 1
+        }
+    ]
+}

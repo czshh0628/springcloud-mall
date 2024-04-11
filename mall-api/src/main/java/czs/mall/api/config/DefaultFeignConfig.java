@@ -20,8 +20,10 @@ public class DefaultFeignConfig {
                 // 获取登录用户
                 Long userId = UserContext.getUser();
                 if (userId == null) {
-                    // 如果为空则直接跳过
-                    return;
+                    // 如果为空则直接跳过 但为了验证先暂时给默认用户ID
+                    //return;
+                    userId = 1L;
+                    UserContext.setUser(userId);
                 }
                 // 如果不为空则放入请求头中，传递给下游微服务
                 template.header("user-info", userId.toString());

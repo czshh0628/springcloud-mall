@@ -30,16 +30,18 @@ jobs:
 
       - name: Extract tag name
         id: extract_tag
-        run: echo "TAG_NAME=$(echo $GITHUB_REF | cut -d '/' -f 3)" >> $GITHUB_ENV
+        run: |
+          echo "TAG_NAME=$(echo $GITHUB_REF | cut -d '/' -f 3)" >> $GITHUB_ENV
+          echo ${{ env.TAG_NAME }}
 
       - name: Build mall gateway
         run: |
           ls -rt
-          docker version
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           # 使用Dockerfile构建镜像
           cd mall-gateway
+          ls -rt
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-gateway:${{ env.TAG_NAME }}
           # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-gateway:${{ env.TAG_NAME }}
@@ -47,11 +49,11 @@ jobs:
       - name: Build mall cart
         run: |
           ls -rt
-          docker version
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           # 使用Dockerfile构建镜像
           cd mall-cart
+          ls -rt
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-cart:${{ env.TAG_NAME }}
           # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-cart:${{ env.TAG_NAME }}
@@ -59,11 +61,11 @@ jobs:
       - name: Build mall item
         run: |
           ls -rt
-          docker version
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           # 使用Dockerfile构建镜像
           cd mall-item
+          ls -rt
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-item:${{ env.TAG_NAME }}
           # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-item:${{ env.TAG_NAME }}
@@ -71,11 +73,11 @@ jobs:
       - name: Build mall pay
         run: |
           ls -rt
-          docker version
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           # 使用Dockerfile构建镜像
           cd mall-pay
+          ls -rt
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-pay:${{ env.TAG_NAME }}
           # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-pay:${{ env.TAG_NAME }}
@@ -83,11 +85,11 @@ jobs:
       - name: Build mall trade
         run: |
           ls -rt
-          docker version
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           # 使用Dockerfile构建镜像
           cd mall-trade
+          ls -rt
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-trade:${{ env.TAG_NAME }}
           # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-trade:${{ env.TAG_NAME }}
@@ -95,11 +97,11 @@ jobs:
       - name: Build mall user
         run: |
           ls -rt
-          docker version
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           # 使用Dockerfile构建镜像
           cd mall-user
+          ls -rt
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-user:${{ env.TAG_NAME }}
           # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/chenzhsh/mall-user:${{ env.TAG_NAME }}
